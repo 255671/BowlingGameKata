@@ -21,4 +21,10 @@ public class BowlingGameTests {
             game.roll(pins);
         }
     }
+
+    @Test
+    void testRollOnlyOnes(){
+        rollMany(20,1);
+        assertEquals(20,game.score());
+    }
 }
