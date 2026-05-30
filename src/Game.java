@@ -3,7 +3,7 @@ public class Game {
     private int[] rolls = new int[21];
     private int currentRoll;
     public void roll(int pins){
-        rolls[currentRoll++] += pins;
+        rolls[currentRoll++] = pins;
     }
     public int score(){
         int score = 0;

@@ -53,4 +53,10 @@ public class BowlingGameTests {
     private void rollStrike() {
         game.roll(10);
     }
+
+    @Test
+    void testPerfectGame(){
+        rollMany(20,10);
+        assertEquals(300,game.score());
+    }
 }
