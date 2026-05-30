@@ -3,6 +3,7 @@ public class Game {
     private int[] rolls = new int[21];
     private int currentRoll;
     public void roll(int pins){
+        if(pins<0) throw new IllegalArgumentException("pins can't be negative");
         rolls[currentRoll++] = pins;
     }
     public int score(){

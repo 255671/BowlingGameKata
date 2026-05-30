@@ -6,13 +6,13 @@ public class BowlingGameTests {
     private Game game;
 
     @BeforeEach
-    protected void initialize(){
+    protected void initialize() {
         game = new Game();
     }
 
     @Test
-    void testWorstGame(){
-        rollMany(20,0);
+    void testWorstGame() {
+        rollMany(20, 0);
         assertEquals(0, game.score());
     }
 
@@ -23,17 +23,17 @@ public class BowlingGameTests {
     }
 
     @Test
-    void testRollOnlyOnes(){
-        rollMany(20,1);
-        assertEquals(20,game.score());
+    void testRollOnlyOnes() {
+        rollMany(20, 1);
+        assertEquals(20, game.score());
     }
 
     @Test
-    void testSpare(){
+    void testSpare() {
         rollSpare();
         game.roll(4);
-        rollMany(17,0);
-        assertEquals(18,game.score());
+        rollMany(17, 0);
+        assertEquals(18, game.score());
     }
 
     private void rollSpare() {
@@ -42,12 +42,12 @@ public class BowlingGameTests {
     }
 
     @Test
-    void testStrike(){
+    void testStrike() {
         rollStrike();
         game.roll(3);
         game.roll(5);
-        rollMany(17,0);
-        assertEquals(26,game.score());
+        rollMany(17, 0);
+        assertEquals(26, game.score());
     }
 
     private void rollStrike() {
@@ -55,8 +55,16 @@ public class BowlingGameTests {
     }
 
     @Test
-    void testPerfectGame(){
-        rollMany(20,10);
-        assertEquals(300,game.score());
+    void testPerfectGame() {
+        rollMany(20, 10);
+        assertEquals(300, game.score());
     }
+
+    @Test
+    void testNegativePins() {
+        assertThrows(IllegalArgumentException.class, () -> game.roll(-1));
+    }
+
+
+
 }
