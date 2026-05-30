@@ -78,4 +78,11 @@ public class BowlingGameTests {
         });
     }
 
+    @Test
+    void testThrowAfterGameFinished(){
+        assertThrows(IllegalStateException.class, () -> {
+            rollMany(21,0);
+            game.roll(0);
+        });
+    }
 }

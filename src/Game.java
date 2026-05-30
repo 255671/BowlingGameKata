@@ -6,6 +6,8 @@ public class Game {
     private int frameCounter;
     private int currentFramePins;
     public void roll(int pins){
+
+        if(currentRoll>=21) throw new IllegalStateException("Game finished, you can't roll more pins");
         if(pins<0) throw new IllegalArgumentException("pins can't be negative");
         if(pins>10) throw new IllegalArgumentException("You can't roll more than 10 pins");
 
