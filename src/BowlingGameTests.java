@@ -40,4 +40,17 @@ public class BowlingGameTests {
         game.roll(5);
         game.roll(5);
     }
+
+    @Test
+    void testStrike(){
+        rollStrike();
+        game.roll(3);
+        game.roll(5);
+        rollMany(17,0);
+        assertEquals(26,game.score());
+    }
+
+    private void rollStrike() {
+        game.roll(10);
+    }
 }

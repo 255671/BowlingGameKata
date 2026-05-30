@@ -10,8 +10,11 @@ public class Game {
         int i = 0;
 
         for (int frames = 0; frames < 10; frames++) {
-
-            if(isSpare(i)){
+            if(isStrike(i)){
+                score += strikeBonus(i);
+                i++;
+            }
+            else if(isSpare(i)){
                 score += spareBonus(i);
                 i+=2;
             }
@@ -22,6 +25,14 @@ public class Game {
 
         }
         return score;
+    }
+
+    private int strikeBonus(int i) {
+        return 10 + rolls[i + 1] + rolls[i + 2];
+    }
+
+    private boolean isStrike(int i) {
+        return rolls[i] == 10;
     }
 
     private int spareBonus(int i) {
