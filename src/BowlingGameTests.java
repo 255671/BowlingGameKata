@@ -27,4 +27,17 @@ public class BowlingGameTests {
         rollMany(20,1);
         assertEquals(20,game.score());
     }
+
+    @Test
+    void testSpare(){
+        rollSpare();
+        game.roll(4);
+        rollMany(17,0);
+        assertEquals(18,game.score());
+    }
+
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
 }
